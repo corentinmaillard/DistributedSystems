@@ -1,0 +1,34 @@
+# New Deployment for getting-started2
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: second-demo
+   namespace: default
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         app: second-web
+   template:
+      metadata:
+         labels:
+            app: second-web
+      spec:
+         containers:
+            - name: second-site
+              image: test-second-pod
+              imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: second-entrypoint
+   namespace: default
+spec:
+   type: NodePort
+   selector:
+      app: second-web
+   ports:
+      - port: 4000
+        targetPort: 4000
+        nodePort: 30002
