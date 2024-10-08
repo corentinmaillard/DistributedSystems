@@ -1,0 +1,6 @@
+nginx-home/**/*
+nginx-home
+nuxt-app/**/*
+nuxt-app
+clean.sh
+deploy.sh

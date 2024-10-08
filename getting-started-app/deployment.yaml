@@ -1,0 +1,20 @@
+# Existing Deployment for getting-started
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: bb-demo
+   namespace: default
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         bb: web
+   template:
+      metadata:
+         labels:
+            bb: web
+      spec:
+         containers:
+            - name: bb-site
+              image: getting-started
+              imagePullPolicy: Never
