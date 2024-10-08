@@ -118,7 +118,7 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
     const { Container, Row, Col, Button } = ReactBootstrap;
 
     const toggleCompletion = () => {
-        fetch(`./items/${item.id}`, {
+        fetch(./items/${item.id}, {
             method: 'PUT',
             body: JSON.stringify({
                 name: item.name,
@@ -131,7 +131,7 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
     };
 
     const removeItem = () => {
-        fetch(`./items/${item.id}`, { method: 'DELETE' }).then(() =>
+        fetch(./items/${item.id}, { method: 'DELETE' }).then(() =>
             onItemRemoval(item),
         );
     };
